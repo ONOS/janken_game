@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FE1DB36A17A222840040D496 /* gu_s.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1DB36917A222840040D496 /* gu_s.png */; };
-		FE1DB36C17A2228F0040D496 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1DB36B17A2228F0040D496 /* Icon.png */; };
+		FE9AA94A17A224B300A698C3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE9AA94917A224B300A698C3 /* Icon.png */; };
 		FED0C6091799675600324688 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED0C6081799675600324688 /* UIKit.framework */; };
 		FED0C60B1799675600324688 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED0C60A1799675600324688 /* Foundation.framework */; };
 		FED0C60D1799675600324688 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED0C60C1799675600324688 /* CoreGraphics.framework */; };
@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		FE1DB36917A222840040D496 /* gu_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gu_s.png; sourceTree = "<group>"; };
-		FE1DB36B17A2228F0040D496 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FE9AA94917A224B300A698C3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FED0C6051799675600324688 /* Janken_game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Janken_game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED0C6081799675600324688 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FED0C60A1799675600324688 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,7 +97,7 @@
 		FED0C5FC1799675600324688 = {
 			isa = PBXGroup;
 			children = (
-				FE1DB36B17A2228F0040D496 /* Icon.png */,
+				FE9AA94917A224B300A698C3 /* Icon.png */,
 				FED0C60E1799675600324688 /* Janken_game */,
 				FED0C6321799675700324688 /* Janken_gameTests */,
 				FED0C6071799675600324688 /* Frameworks */,
@@ -255,7 +255,7 @@
 				FED0C647179968F900324688 /* gu.png in Resources */,
 				FED0C648179968F900324688 /* pa.png in Resources */,
 				FE1DB36A17A222840040D496 /* gu_s.png in Resources */,
-				FE1DB36C17A2228F0040D496 /* Icon.png in Resources */,
+				FE9AA94A17A224B300A698C3 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
