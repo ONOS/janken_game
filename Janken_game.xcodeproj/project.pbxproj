@@ -23,6 +23,9 @@
 		FED0C62F1799675700324688 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED0C60A1799675600324688 /* Foundation.framework */; };
 		FED0C6371799675700324688 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FED0C6351799675700324688 /* InfoPlist.strings */; };
 		FED0C63A1799675700324688 /* Janken_gameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FED0C6391799675700324688 /* Janken_gameTests.m */; };
+		FED0C646179968F900324688 /* ch.png in Resources */ = {isa = PBXBuildFile; fileRef = FED0C643179968F900324688 /* ch.png */; };
+		FED0C647179968F900324688 /* gu.png in Resources */ = {isa = PBXBuildFile; fileRef = FED0C644179968F900324688 /* gu.png */; };
+		FED0C648179968F900324688 /* pa.png in Resources */ = {isa = PBXBuildFile; fileRef = FED0C645179968F900324688 /* pa.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		FED0C6361799675700324688 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FED0C6381799675700324688 /* Janken_gameTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Janken_gameTests.h; sourceTree = "<group>"; };
 		FED0C6391799675700324688 /* Janken_gameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Janken_gameTests.m; sourceTree = "<group>"; };
+		FED0C643179968F900324688 /* ch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ch.png; sourceTree = "<group>"; };
+		FED0C644179968F900324688 /* gu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gu.png; sourceTree = "<group>"; };
+		FED0C645179968F900324688 /* pa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pa.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,9 @@
 		FED0C60F1799675600324688 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FED0C643179968F900324688 /* ch.png */,
+				FED0C644179968F900324688 /* gu.png */,
+				FED0C645179968F900324688 /* pa.png */,
 				FED0C6101799675600324688 /* Janken_game-Info.plist */,
 				FED0C6111799675600324688 /* InfoPlist.strings */,
 				FED0C6141799675600324688 /* main.m */,
@@ -236,6 +245,9 @@
 				FED0C61D1799675600324688 /* Default@2x.png in Resources */,
 				FED0C61F1799675600324688 /* Default-568h@2x.png in Resources */,
 				FED0C6221799675600324688 /* MainStoryboard.storyboard in Resources */,
+				FED0C646179968F900324688 /* ch.png in Resources */,
+				FED0C647179968F900324688 /* gu.png in Resources */,
+				FED0C648179968F900324688 /* pa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
