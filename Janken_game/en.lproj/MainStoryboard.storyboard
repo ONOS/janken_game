@@ -140,6 +140,25 @@
         <image name="gu.png" width="90" height="90"/>
         <image name="pa.png" width="90" height="90"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Hope_Rematch:"/>
+                <relationship kind="action" name="Player_Select_Tactics:"/>
+                <relationship kind="outlet" name="Enemy_Select_Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="Message_Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="Paper_Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="Rematch_Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="Result_Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="Rock_Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="Scissors_Button" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
