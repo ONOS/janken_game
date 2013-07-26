@@ -43,13 +43,13 @@
 - (IBAction)Player_Select_Tactics:(id)sender;
 //相手の手の選択と表示を行うメソッド
 - (NSInteger) Enemy_Select_Tactics;
-//勝敗を判定するメソッド
+//入力された手に応じて勝敗を判定して指定のメソッドを呼び出すメソッド
 - (void) Decide_Win_or_Lose_Player:(NSInteger)Player_Tactics_Key _and_Enemy:(NSInteger)Enemy_Tactics_Key;
-//勝ち、負け、またはあいこの場合の動作を行うメソッド
+//勝ち、負け、またはあいこの場合の処理を行うメソッド
 - (void) Win_View_Setting;
 - (void) Lose_View_Setting;
 - (void) Draw_View_Setting;
-//じゃんけんボタンの表示と有効化を行うメソッド
+//じゃんけんボタンの表示と有効化を行い画面を初期化するメソッド
 - (void) Initial_View;
 //再戦ボタンの押したときに呼び出されるメソッド
 - (IBAction)Hope_Rematch:(id)sender;

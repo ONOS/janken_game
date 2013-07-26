@@ -17,15 +17,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    //イメージにファイルを格納
     Rock_Image = [UIImage imageNamed:@"gu.png"];
     Scissors_Image = [UIImage imageNamed:@"ch.png"];
     Paper_Image = [UIImage imageNamed:@"pa.png"];
-    
+    //ボタンのタグにキーを格納
     Rock_Button.tag = Rock_Key;
     Scissors_Button.tag = Scissors_Key;
     Paper_Button.tag = Paper_Key;
-    
+    //画面の初期化
     Message_Label.text = Message_Label_Initial_Message;
     Enemy_Select_Image.hidden = YES;
     Result_Label.hidden = YES;
