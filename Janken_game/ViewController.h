@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 //数字をじゃんけんのキーとして登録
+//enumを使う　typedef等　型を定義する
 #define Rock_Key 1
 #define Scissors_Key 2
 #define Paper_Key 3
 //UIに表示される日本語をまとめて登録
+//constを使う
 #define Rematch_Button_Initial_Message @"もういっかい"
 #define Message_Label_Initial_Message @"じゃんけん・・・　　　　"
 #define Message_Label_Game_Message @"じゃんけん・・・ぽんっ！"
@@ -39,16 +41,20 @@
     UIImage *Paper_Image;
 }
 
+//メソッドの頭文字を小文字に
+//単語の区切りを大文字に
 //じゃんけんのボタンを押したときに呼び出されるメソッド
-- (IBAction)Player_Select_Tactics:(id)sender;
+- (IBAction)player_Select_Tactics:(id)sender;
 //相手の手の選択と表示を行うメソッド
 - (NSInteger) Enemy_Select_Tactics;
 //入力された手に応じて勝敗を判定して指定のメソッドを呼び出すメソッド
+//ジャッジに変更する
 - (void) Decide_Win_or_Lose_Player:(NSInteger)Player_Tactics_Key _and_Enemy:(NSInteger)Enemy_Tactics_Key;
 //勝ち、負け、またはあいこの場合の処理を行うメソッド
 - (void) Win_View_Setting;
 - (void) Lose_View_Setting;
 - (void) Draw_View_Setting;
+//シンプルに　イニシャライズ
 //じゃんけんボタンの表示と有効化を行い画面を初期化するメソッド
 - (void) Initial_View;
 //再戦ボタンの押したときに呼び出されるメソッド

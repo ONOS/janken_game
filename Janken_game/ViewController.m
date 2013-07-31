@@ -17,11 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //イメージにファイルを格納
+    // UIイメージにファイルを格納
     Rock_Image = [UIImage imageNamed:@"gu.png"];
     Scissors_Image = [UIImage imageNamed:@"ch.png"];
     Paper_Image = [UIImage imageNamed:@"pa.png"];
     //ボタンのタグにキーを格納
+    //(int)と追加（※エラーが出たら）
     Rock_Button.tag = Rock_Key;
     Scissors_Button.tag = Scissors_Key;
     Paper_Button.tag = Paper_Key;
@@ -39,7 +40,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)Player_Select_Tactics:(id)sender {
+- (IBAction)player_Select_Tactics:(id)sender {
     Message_Label.text = Message_Label_Game_Message;
     
     UIButton *Player_Select_Button = (UIButton*) sender;
@@ -62,6 +63,7 @@
             break;
         default:
             Message_Label.text = Error_Message;
+            //リターンにするか例外を投げる
             break;
     }
     
@@ -74,6 +76,7 @@
     Enemy_Select_Image.hidden = NO;
     NSInteger Enemy_Select_Key = arc4random() % 3;
     
+    //数字を使わないようにする
     switch (Enemy_Select_Key) {
         case 0:
             [Enemy_Select_Image setImage:Rock_Image];
@@ -93,6 +96,7 @@
 - (void) Decide_Win_or_Lose_Player:(NSInteger)Player_Tactics_Key _and_Enemy:(NSInteger)Enemy_Tactics_Key {
     Result_Label.hidden = NO;
     
+    //テーブルを作成して判定
     switch (Player_Tactics_Key) {
         case Rock_Key:
             switch (Enemy_Tactics_Key) {

@@ -44,7 +44,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Player_Select_Tactics:" destination="2" eventType="touchUpInside" id="ktC-9X-t3M"/>
+                                    <action selector="player_Select_Tactics:" destination="2" eventType="touchUpInside" id="fBm-WD-MhM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQM-Xe-m5Q">
@@ -57,7 +57,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Player_Select_Tactics:" destination="2" eventType="touchUpInside" id="Z7o-gF-KZL"/>
+                                    <action selector="player_Select_Tactics:" destination="2" eventType="touchUpInside" id="mCI-Ip-GoN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkk-uz-2VS">
@@ -73,7 +73,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Player_Select_Tactics:" destination="2" eventType="touchUpInside" id="HiO-8o-k6b"/>
+                                    <action selector="player_Select_Tactics:" destination="2" eventType="touchUpInside" id="fqg-1f-dKA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znB-U2-h7O">
