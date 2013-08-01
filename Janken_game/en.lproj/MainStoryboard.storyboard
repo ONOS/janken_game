@@ -44,7 +44,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="player_Select_Tactics:" destination="2" eventType="touchUpInside" id="fBm-WD-MhM"/>
+                                    <action selector="playerSelectTactics:" destination="2" eventType="touchUpInside" id="D4G-bG-Hb1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQM-Xe-m5Q">
@@ -57,7 +57,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="player_Select_Tactics:" destination="2" eventType="touchUpInside" id="mCI-Ip-GoN"/>
+                                    <action selector="playerSelectTactics:" destination="2" eventType="touchUpInside" id="gej-cd-05v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkk-uz-2VS">
@@ -73,7 +73,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="player_Select_Tactics:" destination="2" eventType="touchUpInside" id="fqg-1f-dKA"/>
+                                    <action selector="playerSelectTactics:" destination="2" eventType="touchUpInside" id="jby-sh-uHZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znB-U2-h7O">
@@ -121,13 +121,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Enemy_Select_Image" destination="VNn-3g-ate" id="fwG-J6-t6V"/>
-                        <outlet property="Message_Label" destination="UqT-Ty-6jp" id="Q1v-AY-zes"/>
-                        <outlet property="Paper_Button" destination="qkk-uz-2VS" id="3Yj-Hs-cgm"/>
-                        <outlet property="Rematch_Button" destination="znB-U2-h7O" id="gB4-q9-Rue"/>
-                        <outlet property="Result_Label" destination="y8Y-qf-PVY" id="3ic-OI-uok"/>
-                        <outlet property="Rock_Button" destination="Kpw-U4-VmA" id="tnd-tB-QEU"/>
-                        <outlet property="Scissors_Button" destination="kQM-Xe-m5Q" id="6NJ-kL-sfy"/>
+                        <outlet property="enemySelectImage" destination="VNn-3g-ate" id="VXJ-qf-pQU"/>
+                        <outlet property="messageLabel" destination="UqT-Ty-6jp" id="5qv-Lr-w0o"/>
+                        <outlet property="paperButton" destination="qkk-uz-2VS" id="YV8-R6-itG"/>
+                        <outlet property="rematchButton" destination="znB-U2-h7O" id="wkg-vh-NoA"/>
+                        <outlet property="resultLabel" destination="y8Y-qf-PVY" id="yUw-6h-6Nh"/>
+                        <outlet property="rockButton" destination="Kpw-U4-VmA" id="zsW-m3-eiQ"/>
+                        <outlet property="scissorsButton" destination="kQM-Xe-m5Q" id="97B-Wp-yCT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -148,14 +148,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="Hope_Rematch:"/>
-                <relationship kind="action" name="Player_Select_Tactics:"/>
+                <relationship kind="action" name="player_Select_Tactics:"/>
                 <relationship kind="outlet" name="Enemy_Select_Image" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="Message_Label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="Paper_Button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="Rematch_Button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="Result_Label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="Rock_Button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="Scissors_Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rockButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

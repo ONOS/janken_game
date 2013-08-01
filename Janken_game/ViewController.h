@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //数字をじゃんけんのキーとして登録
+#define jankenKey NSInteger
 //enumを使う　typedef等　型を定義する
 #define Rock_Key 1
 #define Scissors_Key 2
@@ -28,28 +29,28 @@
 
 
 @interface ViewController : UIViewController {
-    IBOutlet UIButton *Rock_Button;
-    IBOutlet UIButton *Scissors_Button;
-    IBOutlet UIButton *Paper_Button;
-    IBOutlet UIButton *Rematch_Button;
-    IBOutlet UILabel *Message_Label;
-    IBOutlet UILabel *Result_Label;
-    IBOutlet UIImageView *Enemy_Select_Image;
+    IBOutlet UIButton *rockButton;
+    IBOutlet UIButton *scissorsButton;
+    IBOutlet UIButton *paperButton;
+    IBOutlet UIButton *rematchButton;
+    IBOutlet UILabel *messageLabel;
+    IBOutlet UILabel *resultLabel;
+    IBOutlet UIImageView *enemySelectImage;
     
-    UIImage *Rock_Image;
-    UIImage *Scissors_Image;
-    UIImage *Paper_Image;
+    UIImage *rockImage;
+    UIImage *scissorsImage;
+    UIImage *paperImage;
 }
 
 //メソッドの頭文字を小文字に
 //単語の区切りを大文字に
 //じゃんけんのボタンを押したときに呼び出されるメソッド
-- (IBAction)player_Select_Tactics:(id)sender;
+- (IBAction)playerSelectTactics:(id)sender;
 //相手の手の選択と表示を行うメソッド
-- (NSInteger) Enemy_Select_Tactics;
+- (jankenKey) enemySelectTactics;
 //入力された手に応じて勝敗を判定して指定のメソッドを呼び出すメソッド
 //ジャッジに変更する
-- (void) Decide_Win_or_Lose_Player:(NSInteger)Player_Tactics_Key _and_Enemy:(NSInteger)Enemy_Tactics_Key;
+- (void) JudgeWinOrLosePlayer:(jankenKey)playerTacticsKey AndEnemy:(jankenKey)enemyTacticsKey;
 //勝ち、負け、またはあいこの場合の処理を行うメソッド
 - (void) Win_View_Setting;
 - (void) Lose_View_Setting;
