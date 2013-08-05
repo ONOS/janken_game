@@ -7,25 +7,35 @@
 //
 
 #import <UIKit/UIKit.h>
+
 //数字をじゃんけんのキーとして登録
-#define jankenKey NSInteger
-//enumを使う　typedef等　型を定義する
-#define Rock_Key 1
-#define Scissors_Key 2
-#define Paper_Key 3
+typedef enum {
+	rockKey = 789,
+	scissorsKey = 123,
+	paperKey = 456,
+    errorKey = 999,
+} jankenKey;
+
+//数字を勝ち負けのキーとして登録
+typedef enum {
+    winKey = 10,
+    loseKey,
+    drawKey,
+} resultKey;
+
 //UIに表示される日本語をまとめて登録
-//constを使う
-#define Rematch_Button_Initial_Message @"もういっかい"
-#define Message_Label_Initial_Message @"じゃんけん・・・　　　　"
-#define Message_Label_Game_Message @"じゃんけん・・・ぽんっ！"
-#define Win_Message @"あなたの勝ち！"
-#define Lose_Message @"あなたの負け！"
-#define Draw_Message @"あいこで・・・"
-#define Error_Message @"不正な値が入力されました"
+NSString* const rematchButtonInitialMessage = @"もういっかい";
+NSString* const messageLabelInitialMessage = @"じゃんけん・・・　　　　";
+NSString* const messageLabelGameMessage = @"じゃんけん・・・ぽんっ！";
+NSString* const winMessage = @"あなたの勝ち！";
+NSString* const loseMessage = @"あなたの負け！";
+NSString* const drawMessage = @"あいこで・・・";
+NSString* const errorMessage = @"不正な値が入力されました";
+
 //結果表示時の文字のカラー変更を登録
-#define Win_Color blueColor
-#define Lose_Color redColor
-#define Draw_Color blackColor
+#define winColor blueColor
+#define loseColor redColor
+#define drawColor blackColor
 
 
 @interface ViewController : UIViewController {
@@ -42,22 +52,18 @@
     UIImage *paperImage;
 }
 
-//メソッドの頭文字を小文字に
-//単語の区切りを大文字に
 //じゃんけんのボタンを押したときに呼び出されるメソッド
 - (IBAction)playerSelectTactics:(id)sender;
 //相手の手の選択と表示を行うメソッド
 - (jankenKey) enemySelectTactics;
 //入力された手に応じて勝敗を判定して指定のメソッドを呼び出すメソッド
-//ジャッジに変更する
-- (void) JudgeWinOrLosePlayer:(jankenKey)playerTacticsKey AndEnemy:(jankenKey)enemyTacticsKey;
+- (void) judgeWinOrLosePlayer:(jankenKey)playerTacticsKey AndEnemy:(jankenKey)enemyTacticsKey;
 //勝ち、負け、またはあいこの場合の処理を行うメソッド
-- (void) Win_View_Setting;
-- (void) Lose_View_Setting;
-- (void) Draw_View_Setting;
-//シンプルに　イニシャライズ
+- (void) winViewSetting;
+- (void) loseViewSetting;
+- (void) drawViewSetting;
 //じゃんけんボタンの表示と有効化を行い画面を初期化するメソッド
-- (void) Initial_View;
+- (void) initializeView;
 //再戦ボタンの押したときに呼び出されるメソッド
-- (IBAction)Hope_Rematch:(id)sender;
+- (IBAction)hopeRematch:(id)sender;
 @end

@@ -14,6 +14,10 @@
 
 @implementation ViewController
 
+//じゃんけんキーのテーブルとサイズを指定
+jankenKey tacticsArray[] = {rockKey,scissorsKey,paperKey};
+NSInteger tacticsArrayCount = sizeof(tacticsArray) / sizeof(tacticsArray[0]);
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -23,15 +27,16 @@
     paperImage = [UIImage imageNamed:@"pa.png"];
     //ボタンのタグにキーを格納
     //(int)と追加（※エラーが出たら）
-    rockButton.tag = Rock_Key;
-    scissorsButton.tag = Scissors_Key;
-    paperButton.tag = Paper_Key;
+    rockButton.tag = rockKey;
+    scissorsButton.tag = scissorsKey;
+    paperButton.tag = paperKey;
     //画面の初期化
-    messageLabel.text = Message_Label_Initial_Message;
+    messageLabel.text = messageLabelInitialMessage;
     enemySelectImage.hidden = YES;
     resultLabel.hidden = YES;
-    [rematchButton setTitle:Rematch_Button_Initial_Message forState:UIControlStateNormal];
-    rematchButton.hidden = YES;
+    [self initializeView];
+    [rematchButton setTitle:rematchButtonInitialMessage forState:UIControlStateNormal];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,136 +46,114 @@
 }
 
 - (IBAction)playerSelectTactics:(id)sender {
-    messageLabel.text = Message_Label_Game_Message;
+    messageLabel.text = messageLabelGameMessage;
     
-    UIButton *Player_Select_Button = (UIButton*) sender;
+    UIButton *playerSelectButton = (UIButton*) sender;
     
-    switch (Player_Select_Button.tag) {
-        case Rock_Key:
+    switch (playerSelectButton.tag) {
+        case rockKey:
             [rockButton setEnabled:NO];
             scissorsButton.hidden = YES;
             paperButton.hidden = YES;
             break;
-        case Scissors_Key:
+        case scissorsKey:
             [scissorsButton setEnabled:NO];
             rockButton.hidden = YES;
             paperButton.hidden = YES;
             break;
-        case Paper_Key:
+        case paperKey:
             [paperButton setEnabled:NO];
             rockButton.hidden = YES;
             scissorsButton.hidden = YES;
             break;
         default:
-            messageLabel.text = Error_Message;
+            messageLabel.text = errorMessage;
             //リターンにするか例外を投げる
             break;
     }
     
-    NSInteger Enemy_Select_Button = [self enemySelectTactics];
+    NSInteger enemySelectButton = [self enemySelectTactics];
     
-    [self JudgeWinOrLosePlayer:Player_Select_Button.tag AndEnemy:Enemy_Select_Button];
+    [self judgeWinOrLosePlayer:playerSelectButton.tag AndEnemy:enemySelectButton];
 }
 
 -(jankenKey) enemySelectTactics {
     enemySelectImage.hidden = NO;
-    jankenKey Enemy_Select_Key = arc4random() % 3;
+    NSInteger enemySelectKey = arc4random() % tacticsArrayCount;
     
-    //数字を使わないようにする
-    switch (Enemy_Select_Key) {
-        case 0:
+    switch (tacticsArray[enemySelectKey]) {
+        case rockKey:
             [enemySelectImage setImage:rockImage];
-            return Rock_Key;
-        case 1:
+            return rockKey;
+        case scissorsKey:
             [enemySelectImage setImage:scissorsImage];
-            return Scissors_Key;
-        case 2:
+            return scissorsKey;
+        case paperKey:
             [enemySelectImage setImage:paperImage];
-            return Paper_Key;
+            return paperKey;
         default:
-            messageLabel.text = Error_Message;
-            return 0;
+            messageLabel.text = errorMessage;
+            return errorKey;
     }
 }
 
-- (void) JudgeWinOrLosePlayer:(jankenKey)playerTacticsKey AndEnemy:(jankenKey)enemyTacticsKey {
+- (void) judgeWinOrLosePlayer:(jankenKey)playerTacticsKey AndEnemy:(jankenKey)enemyTacticsKey {
     resultLabel.hidden = NO;
     
-    //テーブルを作成して判定
-    switch (playerTacticsKey) {
-        case Rock_Key:
-            switch (enemyTacticsKey) {
-                case Rock_Key:
-                    [self Draw_View_Setting];
-                    break;
-                case Scissors_Key:
-                    [self Win_View_Setting];
-                    break;
-                case Paper_Key:
-                    [self Lose_View_Setting];
-                    break;
-                default:
-                    messageLabel.text = Error_Message;
-                    break;
-            }
+    NSInteger maxKeysize;
+    NSInteger keyCount;
+    for (keyCount=1, maxKeysize=tacticsArray[0]; keyCount<tacticsArrayCount; keyCount++) {
+        if (maxKeysize - 1 < tacticsArray[keyCount]) {
+            maxKeysize = tacticsArray[keyCount] + 1;
+        }
+    }
+    
+    resultKey resultArray[maxKeysize][maxKeysize];
+    resultArray[rockKey][rockKey] = drawKey;
+    resultArray[rockKey][scissorsKey] = winKey;
+    resultArray[rockKey][paperKey] = loseKey;
+    resultArray[scissorsKey][rockKey] = loseKey;
+    resultArray[scissorsKey][scissorsKey] = drawKey;
+    resultArray[scissorsKey][paperKey] = winKey;
+    resultArray[paperKey][rockKey] = winKey;
+    resultArray[paperKey][scissorsKey] = loseKey;
+    resultArray[paperKey][paperKey] = drawKey;
+    
+    switch (resultArray[playerTacticsKey][enemyTacticsKey]) {
+        case winKey:
+            [self winViewSetting];
             break;
-        case Scissors_Key:
-            switch (enemyTacticsKey) {
-                case Rock_Key:
-                    [self Lose_View_Setting];
-                    break;
-                case Scissors_Key:
-                    [self Draw_View_Setting];
-                    break;
-                case Paper_Key:
-                    [self Win_View_Setting];
-                    break;
-                default:
-                    messageLabel.text = Error_Message;
-                    break;
-            }
+        case loseKey:
+            [self loseViewSetting];
             break;
-        case Paper_Key:
-            switch (enemyTacticsKey) {
-                case Rock_Key:
-                    [self Win_View_Setting];
-                    break;
-                case Scissors_Key:
-                    [self Lose_View_Setting];
-                    break;
-                case Paper_Key:
-                    [self Draw_View_Setting];
-                    break;
-                default:
-                    messageLabel.text = Error_Message;
-                    break;
-            }
+        case drawKey:
+            [self drawViewSetting];
             break;
         default:
-            messageLabel.text = Error_Message;
+            messageLabel.text = errorMessage;
             break;
     }
 }
 
-- (void) Win_View_Setting {
-    [resultLabel setTextColor:[UIColor Win_Color]];
-    resultLabel.text = Win_Message;
+- (void) winViewSetting {
+    [resultLabel setTextColor:[UIColor winColor]];
+    resultLabel.text = winMessage;
     rematchButton.hidden = NO;
 }
 
-- (void) Lose_View_Setting {
-    [resultLabel setTextColor:[UIColor Lose_Color]];
-    resultLabel.text = Lose_Message;
+- (void) loseViewSetting {
+    [resultLabel setTextColor:[UIColor loseColor]];
+    resultLabel.text = loseMessage;
     rematchButton.hidden = NO;
 }
 
-- (void) Draw_View_Setting {
-    [resultLabel setTextColor:[UIColor Draw_Color]];
-    resultLabel.text = Draw_Message;
-    [self Initial_View];
+- (void) drawViewSetting {
+    [resultLabel setTextColor:[UIColor drawColor]];
+    resultLabel.text = drawMessage;
+    [self initializeView];
 }
 
-- (void) Initial_View {
+- (void) initializeView {
     [rockButton setEnabled:YES];
     [scissorsButton setEnabled:YES];
     [paperButton setEnabled:YES];
@@ -180,9 +163,9 @@
     rematchButton.hidden = YES;
 }
 
-- (IBAction)Hope_Rematch:(id)sender {
-    messageLabel.text = Message_Label_Initial_Message;
-    [self Initial_View];
+- (IBAction)hopeRematch:(id)sender {
+    messageLabel.text = messageLabelInitialMessage;
+    [self initializeView];
     enemySelectImage.hidden = YES;
     [enemySelectImage setImage:nil];
     resultLabel.hidden = YES;
